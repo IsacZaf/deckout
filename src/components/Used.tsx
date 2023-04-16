@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { fetchCardData } from './api';
 import "./card.css";
 
-// Define the props for the renamed component
 type UsedProps = {
-  cardName: string; // Pass in the card name as a prop
+  cardName: string; 
 };
 
-// Define the type for card data
 type CardData = {
   card_images: { image_url_small: string, image_url: string }[];
   name: string;
@@ -23,12 +21,11 @@ type CardData = {
 };
 
 const Used: React.FC<UsedProps> = ({ cardName }) => {
-  const [cardData, setCardData] = useState<CardData[] | null>(null); // State to store card data
+  const [cardData, setCardData] = useState<CardData[] | null>(null); 
   const [showModal, setShowModal] = useState(false);
 
 
   useEffect(() => {
-    // Fetch card data when the component mounts
     const fetchCard = async () => {
       try {
         const response = await fetchCardData();
@@ -40,7 +37,6 @@ const Used: React.FC<UsedProps> = ({ cardName }) => {
     fetchCard();
   }, []);
 
-  // Find the index of the card in the cardData array based on the card name
   const cardIndex = cardData ? cardData.findIndex(card => card.name === cardName) : -1;
 
 
@@ -53,7 +49,6 @@ const Used: React.FC<UsedProps> = ({ cardName }) => {
           </button>
           <div className="card-details">
             <h3 className="card-name">{cardData?.[cardIndex]?.name ?? ''}</h3>
-            <p className="card-type">{cardData?.[cardIndex]?.type ?? ''}</p>
             {showModal && (
               <div className="card-modal active">
                 <img className="card-modal-image" src={cardData?.[cardIndex]?.card_images?.[0]?.image_url ?? ''} alt={cardData?.[cardIndex]?.name ?? ''} />

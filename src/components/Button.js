@@ -19,9 +19,9 @@ export const Button = ({children,
          const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
 
          const handleButtonClick = () => {
-           const deckElement = document.getElementById('deck'); // Get the element with id of 'deck'
+           const deckElement = document.getElementById('deck');
            if (deckElement) {
-             deckElement.scrollIntoView({ behavior: 'smooth' }); // Scroll to the element
+             deckElement.scrollIntoView({ behavior: 'smooth' });
            }
          };
 
@@ -31,7 +31,7 @@ export const Button = ({children,
               className={`btn ${checkButtonStyle} ${checkButtonSize}`}
               onClick={() => {
                 onClick();
-                handleButtonClick(); // Call the handleButtonClick function
+                handleButtonClick();
               }}
               type={type}
               >

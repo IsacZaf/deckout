@@ -19,11 +19,11 @@
     background-color: #fff;
     padding: 20px;
     max-width: 600px;
-    width: 90%; /* Updated to 90% width */
+    width: 90%; 
     max-height: 80vh;
     overflow-y: auto;
-    border-radius: 10px; /* Increased border radius */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased box shadow */
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
   }
   
   .card-modal-close {
@@ -35,7 +35,6 @@
   
   .card-modal-close::before,
   .card-modal-close::after {
-    /* Updated close button styles */
     content: "";
     position: absolute;
     top: 50%;
@@ -220,7 +219,6 @@
     background-color: #545b62;
   }
   
-  /* Additional styles for better button appearance */
   .add-to-deck-btn,
   .remove-from-deck-btn,
   .close-modal-btn {
@@ -269,7 +267,7 @@
   }
   
   .card-display {
-    height: calc(100vh - 200px); /* set desired height for the card display section */
+    height: calc(100vh - 200px);
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
@@ -284,7 +282,9 @@
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    border: none; 
+    border: none;
+    margin-bottom: 77px; 
+    margin-left: 77px;
   }
   
   .save-deck-btn:hover {
@@ -337,26 +337,39 @@
     font-size: 24px; 
     text-align: center; 
     margin-top: 40px; 
-    margin-bottom: 16px; 
+    margin-bottom: 16px;
+    padding: 10%; 
     text-transform: uppercase; 
     color: #333; 
   }
   
   .deck-box {
-    margin-top: 20px; /* Add margin to space it from the rest of the page */
+    margin-top: 20px; 
+    margin-left: 25%;
   }
   
   .deck-box-title {
-    font-size: 24px; /* Increase font size for the title */
-    margin: 0 auto; /* Center align the title by setting margin to auto */
-    max-width: 200px; /* Set a maximum width to prevent it from stretching too much */
+    padding: 10%;
+    font-size: 24px; 
+    margin: 0 auto;
+    max-width: 200px; 
   }
-  
+
+  .main-deck-p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .extra-deck-p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   
   .deck-box-card-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px; /* Add margin to space it from the deck name */
+    margin-top: 20px;
   }
   
   .deck-box-card {
@@ -382,30 +395,31 @@
   }
   
   .deck-box-card-name {
-    margin-top: 5px; /* Add margin to space it from the image */
-    margin-bottom: 5px; /* Add margin to space it from the count */
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   
   .deck-box-card-count {
-    margin-bottom: 5px; /* Add margin to space it from the remove button */
+    margin-bottom: 5px;
+  }
+
+  .yu-card {
+    font-weight: 700;
   }
   
   .deck-box-deck-name {
-    /* Add your desired styles here to make the deck name stand out */
-    font-size: 24px; /* Increase font size */
-    font-weight: bold; /* Apply bold font weight */
-    color: #ff0000; /* Change text color to red */
-    text-transform: uppercase; /* Convert text to uppercase */
-    position: relative; /* Set position to relative for animations */
-    /* Add any other styles as needed */
-    /* Add transitions for smooth animations */
+    
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0000;
+    text-transform: uppercase;
+    position: relative;
     transition: transform 0.3s ease-in-out;
   }
   
   .deck-box-deck-name:hover {
-    /* Add animations for a flashy effect on hover */
     animation: pulsate 1s infinite;
-    transform: rotate(360deg); /* Apply rotation on hover */
+    transform: rotate(360deg);
   }
   
   @keyframes pulsate {
@@ -424,18 +438,17 @@
   .albaz-h2 {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 20px; /* add margin-top as needed */
+    margin-top: 20px;
   }
   
-  /* Style for h3 element */
   .albaz-h3 {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 15px; /* add margin-top as needed */
+    margin-top: 15px;
   }
   
-  /* Style for p element */
+  
   .albaz-p {
     font-size: 16px;
-    margin-top: 10px; /* add margin-top as needed */
+    margin-top: 10px;
   }

@@ -259,22 +259,22 @@ useEffect(() => {
               alt={selectedCard.name}
               className="card-modal-image"
             />
-            <p>Name: {selectedCard.name}</p>
-            <p>Description: {selectedCard.desc}</p>
-            <p>Type: {selectedCard.type}</p>
-            <p>Race: {selectedCard.race}</p>
+            <p className='yu-card'>Name: {selectedCard.name}</p>
+            <p className='yu-card'>Description: {selectedCard.desc}</p>
+            <p className='yu-card'>Type: {selectedCard.type}</p>
+            <p className='yu-card'>Race: {selectedCard.race}</p>
             {selectedCard.type.includes('Monster') && (
               <React.Fragment>
-                <p>Attribute: {selectedCard.attribute}</p>
-                <p>Level/Rank: {selectedCard.level}</p>
-                <p>Attack: {selectedCard.atk}</p>
+                <p className='yu-card'>Attribute: {selectedCard.attribute}</p>
+                <p className='yu-card'>Level/Rank: {selectedCard.level}</p>
+                <p className='yu-card'>Attack: {selectedCard.atk}</p>
                 {selectedCard.type === 'Link Monster' ? (
                   <React.Fragment>
-                    <p>Link Value: {selectedCard.linkval}</p>
-                    <p>Link Markers: {selectedCard.linkmarkers.join(', ')}</p>
+                    <p className='yu-card'>Link Value: {selectedCard.linkval}</p>
+                    <p className='yu-card'>Link Markers: {selectedCard.linkmarkers.join(', ')}</p>
                   </React.Fragment>
                 ) : (
-                  <p>Defense: {selectedCard.def}</p>
+                  <p className='yu-card'>Defense: {selectedCard.def}</p>
                 )}
               </React.Fragment>
             )}
@@ -329,7 +329,7 @@ useEffect(() => {
       ))}
     </div>
   ) : (
-    <p>{deckName !== '' ? 'No cards in the main deck.' : 'Main deck not saved.'}</p>
+    <p className='main-deck-p'>{deckName !== '' ? 'No cards in the main deck.' : 'Main deck not saved.'}</p>
   )}
 </div>
 
@@ -358,7 +358,7 @@ useEffect(() => {
       ))}
     </div>
   ) : (
-    <p>{deckName !== '' ? 'No cards in the extra deck.' : 'Extra deck not saved.'}</p>
+    <p className='extra-deck-p'>{deckName !== '' ? 'No cards in the extra deck.' : 'Extra deck not saved.'}</p>
   )}
 
 <div className="deck-box">

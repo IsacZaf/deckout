@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Used from './Used';
-import './card.css';
+import './Deck.css';
 
 const DeckComponent = () => {
   const preMadeDeck = [
@@ -39,30 +39,28 @@ const DeckComponent = () => {
     { cardName: 'Red-Eyes Dark Dragoon', cardQty: 1 },
   ];
 
-  const [isCardsLoaded, setIsCardsLoaded] = useState(false); // State to track if cards are loaded
+  const [isCardsLoaded, setIsCardsLoaded] = useState(false); 
 
-  // Function to handle button click
   const handleLoadCardsClick = () => {
-    setIsCardsLoaded(!isCardsLoaded); // Toggle the value of isCardsLoaded
+    setIsCardsLoaded(!isCardsLoaded);
   };
 
   return (
-    <div>
-      <h2 className='albaz-h2'>Deck Suggestion</h2>
-      <h3 className='albaz-h3'>Isac's Branded Despia Deck</h3>
-      <p className='albaz-p'>The object of the deck is simple. It's a fusion focused deck that can summon a variety of powerful fusion monsters to overwhelm the field.
+    <div className='container'>
+       <h2 className='titel'>Deck Suggestion</h2>
+    <h3 className='subtitel'>Isac's Branded Despia Deck</h3>
+    <p className='expla'>The object of the deck is simple. It's a fusion focused deck that can summon a variety of powerful fusion monsters to overwhelm the field.
         It's a very strong deck in the meta but is also on the more expensive side. Some of the cards cost 60 euros a pop.
         However, a strong foundation can be built by buying the Albaz Strike structure deck which costs 10 euros and contains many of the deck's staples.
       </p>
-      <button className="deck-open" onClick={handleLoadCardsClick}>
+      <button className="open" onClick={handleLoadCardsClick}>
         {isCardsLoaded ? 'Hide Deck' : 'Show Deck'}
       </button>
-      <div className="deck-list">
-        {/* Render Used components for each card in the pre-made deck only if cards are loaded */}
+      <div className="lista">
+       
         {isCardsLoaded &&
           preMadeDeck.map(card => (
             <div className="card-wrapper" key={card.cardName}>
-              {/* Add a wrapper div with card-wrapper class */}
               <Used cardName={card.cardName} />
             </div>
           ))}

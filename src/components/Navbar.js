@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
-import { Link, useNavigate } from 'react-router-dom'; // Update import statement to include useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
@@ -10,11 +10,11 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const navigate = useNavigate(); // Update to use useNavigate instead of useHistory
+  const navigate = useNavigate();
 
   const handleGoToDeck = () => {
     closeMobileMenu();
-    navigate('/#deck'); // Update to use navigate instead of history.push
+    navigate('/#deck');
   };
 
   const showButton = () => {
