@@ -49,30 +49,23 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/decks'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
+              <Link to='/decks' className='nav-links' onClick={closeMobileMenu}>
                 Deck suggestions
               </Link>
             </li>
-
             <li>
-              <Link
-                to="/card"
-                className="nav-links-mobile"
-                onClick={closeMobileMenu}
-              >
+              <Link to="/card" className="nav-links-mobile" onClick={closeMobileMenu}>
                 Go to Deck
+              </Link>
+            </li>
+            <li>
+              <Link to="/showdeck" className="nav-links" onClick={handleGoToDeck}>
+                Search Decks
               </Link>
             </li>
           </ul>
           {button && (
-            <Button
-              buttonStyle="btn--outline"
-              onClick={handleGoToDeck}
-            >
+            <Button buttonStyle="btn--outline" onClick={handleGoToDeck}>
               Build Deck
             </Button>
           )}

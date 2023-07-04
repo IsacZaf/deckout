@@ -169,49 +169,53 @@ useEffect(() => {
  
  
 
-  const handleSaveDeck = () => {
-  if (deck.length > 60) {
-    alert('You can only have up to 60 cards in your main deck.');
-    return;
-  } else if (extraDeck.length > 15) {
-    alert('You can only have up to 15 cards in your extra deck.');
-    return;
-  } else {
-    const totalDeck = { deck: deck, extraDeck: extraDeck };
-    const name = prompt('Enter a name for your deck (maximum 30 characters):');
-    if (!name) {
-      alert('Please enter a valid name for your deck.');
+  const handleSaveDeck = async () => {
+    if (deck.length > 60) {
+      alert('You can only have up to 60 cards in your main deck.');
       return;
-    } else if (name.length > 30) {
-      alert('Deck name must be maximum 30 characters.');
+    } else if (extraDeck.length > 15) {
+      alert('You can only have up to 15 cards in your extra deck.');
       return;
-    }
-    console.log('Deck name:', name);
-    setDeckName(name);
-    localStorage.setItem('deckName', name); 
-    setCombinedDeck(totalDeck);
-    localStorage.setItem('deck', JSON.stringify(totalDeck)); 
-    alert('Deck has been saved to local storage.');
-    setDeck([]);
-    setExtraDeck([]);
-    localStorage.removeItem('mainDeck');
-    localStorage.removeItem('extraDeck');
-  
-      const retrievedMainDeck = JSON.parse(localStorage.getItem('mainDeck'));
-      const retrievedExtraDeck = JSON.parse(localStorage.getItem('extraDeck'));
-      if (retrievedMainDeck) {
-        setDeck(retrievedMainDeck);
+    } else {
+      const totalDeck = { deck: deck, extraDeck: extraDeck };
+      const name = prompt('Enter a name for your deck (maximum 30 characters):');
+      if (!name) {
+        alert('Please enter a valid name for your deck.');
+        return;
+      } else if (name.length > 30) {
+        alert('Deck name must be maximum 30 characters.');
+        return;
       }
-      if (retrievedExtraDeck) {
-        setExtraDeck(retrievedExtraDeck);
+  
+      try {
+        const response = await fetch('http://localhost:8080/api/decks', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, deck: totalDeck }),
+        });
+  
+        if (response.ok) {
+          setDeck([]);
+          setExtraDeck([]);
+  
+          localStorage.removeItem('mainDeck');
+          localStorage.removeItem('extraDeck');
+  
+          setDeckName(name);
+          localStorage.setItem('deckName', name);
+  
+          alert('Deck has been saved successfully.');
+        } else {
+          alert('Failed to save the deck. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error saving deck:', error);
+        alert('An error occurred while saving the deck. Please try again.');
       }
     }
   };
-  
-  
-  
-  
-  
   console.log('cardData:', cardData);
   console.log('deck:', deck);
 

@@ -3,7 +3,7 @@ import { fetchCardData } from './api';
 import "./card.css";
 
 type UsedProps = {
-  cardName: string; 
+  cardName: string;
 };
 
 type CardData = {

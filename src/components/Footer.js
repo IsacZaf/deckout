@@ -14,7 +14,7 @@ const Footer = () => {
         textAlign: 'center',
       }}
     >
-      <p>Deck-Out made by {author}</p>
+      <p>|| Deck-Out made by Isac || {author} is also cool</p>
     </footer>
   );
 };

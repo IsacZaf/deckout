@@ -6,6 +6,7 @@ import DeckComponent from "./components/DeckComponent";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ShowDeck from './components/showdeck';
 
 export const AppContext = React.createContext<{
   author: string;
@@ -28,6 +29,7 @@ const App: React.FC = () => {
             <Route path="/card" element={<Card />} />
             <Route path="/decks" element={<DeckComponent />} />
             <Route path="/about" element={<About />} />
+            <Route path="/showdeck" element={<ShowDeck />} />
             <Route
               path="/cards/:cardId"
               // element={({ params }) => {
